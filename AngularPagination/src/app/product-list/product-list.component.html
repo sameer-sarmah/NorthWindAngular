@@ -1,0 +1,24 @@
+<!-- list of recipe -->
+<div class="flex-column-container lightBlueBG scroll-box">
+    <div class="flex-row-container flex-item product-item header-row" style="width:100%;">
+        <h2 class="flex-item cell-element">Product ID</h2>
+        <h2 class="flex-item cell-element">Product Name</h2>
+        <h2 class="flex-item cell-element">Unit Price</h2>
+        <h2 class="flex-item cell-element">Quantity Per Unit</h2>
+      </div>
+  <div class="flex-item text-block paleBlackTextColor flex-column-container" *ngFor="let product of productList" 
+  style="width:100%;">
+    <div class="flex-row-container flex-item product-item" style="width:100%;">
+      <div class="flex-item cell-element">{{product.ProductID}}</div>
+      <div class="flex-item cell-element">{{product.ProductName}}</div>
+      <div class="flex-item cell-element">{{product.UnitPrice}}</div>
+      <div class="flex-item cell-element">{{product.QuantityPerUnit}}</div>
+    </div>
+  </div>
+  <div class="flex-row-container show-more" *ngIf="productList.length !== productCount ">
+		<div class="flex-item" >
+   <!--   <button type="button" (click)="fetchMoreProducts()">Show More ({{productList.length}} / {{productCount}}) </button>	-->
+   <button type="button" (click)="getProductListHTTP()">Show More ({{productList.length}} / {{productCount}}) </button>
+		</div>
+	</div>
+</div>
