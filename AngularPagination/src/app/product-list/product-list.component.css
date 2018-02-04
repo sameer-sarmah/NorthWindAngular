@@ -21,7 +21,7 @@
 }
 
 .header-row{
-    background-color: #0b557a;
+    background-color:#4f6f80;
     
 }
 
@@ -50,7 +50,7 @@ text-align: center;
 
 .lightBlueBG
 {
-    background-color: #4184a5;
+    background-color: #d5e2e9;;
 }
 
 .paleBlackTextColor
@@ -67,8 +67,8 @@ color:#000;
 .show-more button{
     height: 70px;
     width: 140px;
-    background-color: #67b7df;
-    border-color: #67b7df;
+    background-color: #8ba9b8;
+    border-color: #8ba9b8;
     border-radius: 5px;
     margin-left: 10px;
     cursor: pointer;

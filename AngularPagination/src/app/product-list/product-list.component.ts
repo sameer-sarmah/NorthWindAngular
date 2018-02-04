@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../services/product.service';
 import { HttpService } from '../services/http.service';
 import { Observable } from 'rxjs/Observable';
+import { ProductHttpService } from '../services/product-http.service';
 
 @Component({
   selector: 'app-product-list',
@@ -12,7 +13,7 @@ export class ProductListComponent implements OnInit {
 private productList:any[]=[];
 private productCount:number=Number.MAX_VALUE;
 private growingThreshold:number=5;
-constructor(private svc:ProductService,private http:HttpService) { 
+constructor(private svc:ProductService,private http:ProductHttpService) { 
 
   }
 
@@ -37,8 +38,11 @@ constructor(private svc:ProductService,private http:HttpService) {
   getProductCountHTTP(){
   this.http.getProductCount().subscribe(
     (count) => {
-      this.productCount = +count;
-      console.log(count)
+      console.log(count.value);
+      if(typeof count.value === "number"){
+        this.productCount = +count.value;
+      }
+
     },
     (error) => console.log(error)
   );
@@ -56,6 +60,7 @@ constructor(private svc:ProductService,private http:HttpService) {
       (data) => {
          let products=data.value;
          console.log(products);
+         if(!!products)
          this.productList=this.productList.concat(products);
       },
       (error) => console.log(error)
