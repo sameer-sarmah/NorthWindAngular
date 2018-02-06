@@ -7,10 +7,10 @@ export class ProductHttpService {
   private svcURL="https://cors-anywhere.herokuapp.com/services.odata.org/Northwind/Northwind.svc/Products";
   private productCount:number;
   constructor(private httpService:HttpService) { }
-  getProductList(top:number,skip:number):Observable<any>{
+  getProductList(top:number,skip:number,headers:{}={}):Observable<any>{
     let paginationQuery="?$top="+top+"&skip="+skip+"&$format=json";
     const params={"$top":top.toString(),"$skip":skip.toString(),"$format":"json"};
-    return this.httpService.initiateRequest("GET",this.svcURL,params);
+    return this.httpService.initiateRequest("GET",this.svcURL,params,headers);
 
   }
 
