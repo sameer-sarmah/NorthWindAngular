@@ -16,9 +16,17 @@
     </div>
   </div>
   <div class="flex-row-container show-more" *ngIf="productList.length !== productCount ">
+    <!--
 		<div class="flex-item" >
-   <!--   <button type="button" (click)="fetchMoreProducts()">Show More ({{productList.length}} / {{productCount}}) </button>	-->
    <button type="button" (click)="getProductListHTTP()">Show More ({{productList.length}} / {{productCount}}) </button>
-		</div>
+    </div>
+    -->
+    <div
+      infiniteScroll
+      [infiniteScrollDistance]="4"
+      [infiniteScrollThrottle]="1000"
+      (scrolled)="getProductListHTTP()"
+    >
+    </div>
 	</div>
 </div>

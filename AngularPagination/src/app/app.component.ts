@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import {System} from 'systemjs';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

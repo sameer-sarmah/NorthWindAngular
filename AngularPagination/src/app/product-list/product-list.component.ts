@@ -3,7 +3,7 @@ import { ProductService } from '../services/product.service';
 import { HttpService } from '../services/http.service';
 import { Observable } from 'rxjs/Observable';
 import { ProductHttpService } from '../services/product-http.service';
-
+import { InfiniteScrollDirective } from 'ngx-infinite-scroll';
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
@@ -12,7 +12,7 @@ import { ProductHttpService } from '../services/product-http.service';
 export class ProductListComponent implements OnInit {
 private productList:any[]=[];
 private productCount:number=Number.MAX_VALUE;
-private growingThreshold:number=5;
+private growingThreshold:number=10;
 constructor(private svc:ProductService,private http:ProductHttpService) { 
 
   }

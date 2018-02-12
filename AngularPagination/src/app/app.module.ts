@@ -12,17 +12,20 @@ import { HttpHeaderInterceptor } from './services/http.interceptor';
 import { CsrfService } from './services/csrf.service';
 import { CSRFCache } from './services/csrf-cache';
 import { ProductHttpService } from './services/product-http.service';
-
+import {InfiniteScrollModule} from 'ngx-infinite-scroll';
+import { PaginationDirective } from './directives/pagination.directive'
 @NgModule({
   declarations: [
     AppComponent,
     ProductListComponent,
-    ProductItemComponent
+    ProductItemComponent,
+    PaginationDirective
   ],
   imports: [
     BrowserModule,
     HttpModule,
-    HttpClientModule
+    HttpClientModule,
+    InfiniteScrollModule
   ],
   providers: [ProductService,HttpService,HttpHeaderInterceptor,CsrfService,CSRFCache,ProductHttpService,
     { provide: HTTP_INTERCEPTORS, useClass: HttpHeaderInterceptor, multi: true }],
